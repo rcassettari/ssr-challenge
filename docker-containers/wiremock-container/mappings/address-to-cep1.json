@@ -1,0 +1,24 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "POST",
+        "urlPath": "/api/v1/lookup/cep",
+        "bodyPatterns": [
+          {
+            "matchesJsonPath": "$[?(@.streetType == 'Avenida' && @.street == 'Paulista' && @.city == 'São Paulo' && @.state == 'SP')]"
+          }
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "cep": "01310200"
+        }
+      }
+    }
+  ]
+}

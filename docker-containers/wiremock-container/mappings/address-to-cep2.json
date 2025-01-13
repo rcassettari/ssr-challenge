@@ -1,0 +1,24 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "POST",
+        "urlPath": "/api/v1/lookup/cep",
+        "bodyPatterns": [
+          {
+            "matchesJsonPath": "$[?(@.streetType == 'Rua' && @.street == 'São Geraldo' && @.city == 'São Bernardo do Campo' && @.state == 'SP')]"
+          }
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "cep": "09820220"
+        }
+      }
+    }
+  ]
+}

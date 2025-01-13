@@ -1,0 +1,28 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: ssr
+
+  datasource:
+    url: jdbc:mysql://192.168.0.43:3306/order_validation
+    username: app_user
+    password: my_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+externalservices:
+  cepbyaddressapi:
+    client:
+      address:
+        url: http://192.168.0.43:8082/api/v1/lookup/cep
+
+logging:
+  level:
+    com.ss.challenge.ssr.aspect.FeignClientInterceptor: DEBUG
+
