@@ -150,11 +150,15 @@ docker run -d -p 3306:3306 --name mysql-container custom-mysql
 
 Considerações:
 
-1 - Para usar MySQL na AWS, a abordagem com container docker não é recomendada. Ao invés disso, o melhor é usar o RDS em uma subnet privada.
+1 - Foi feita a criação de uma aplicação Elastic Beans talk com um environment, subindo o container docker rodando o wiremock-custom na AWS e simulando requisições a partir do postman;
 
-2 - A manutenção de usuários e senhas em arquivos de configuração, como feito nesse exemplo, também não é recomendada, ao invés disso, é melhor usar o AWS Secrets Manager para rotacionar as senhas usando lambda functions, de forma a ter a mudança periodica da senha. O acesso para obtenção da senha deverá ser feito por SDK ou API.
+O documento explica os passos para isso: [Subir_container_wiremock_na_AWS.pdf](aws/Subir_container_wiremock_na_AWS.pdf)
 
-3 - No exemplo, já foi criado um usuário root para o banco de dados MySQL e um usuário adicional para a aplicação, o que é uma boa prática ( a aplicação deve ter seu usuário ) e bem melhor do que usar a senha do usuário root do banco de dados para acesso da aplicação;
+2 - Para usar MySQL na AWS, a abordagem com container docker não é recomendada. Ao invés disso, o melhor é usar o RDS em uma subnet privada.
+
+3 - A manutenção de usuários e senhas em arquivos de configuração, como feito nesse exemplo, também não é recomendada, ao invés disso, é melhor usar o AWS Secrets Manager para rotacionar as senhas usando lambda functions, de forma a ter a mudança periodica da senha. O acesso para obtenção da senha deverá ser feito por SDK ou API.
+
+4 - No exemplo, já foi criado um usuário root para o banco de dados MySQL e um usuário adicional para a aplicação, o que é uma boa prática ( a aplicação deve ter seu usuário ) e bem melhor do que usar a senha do usuário root do banco de dados para acesso da aplicação;
 
 # Entendendo mais...
 
